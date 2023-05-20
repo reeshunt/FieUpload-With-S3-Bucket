@@ -1,0 +1,24 @@
+﻿<Properties StartupConfiguration="{1CBFC200-D287-4A04-ADDE-B307552E4C48}|Default">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/rees/Desktop/AnimalDrawingApi/Models/AWSS3BucketHelper.cs" relfile="Models/AWSS3BucketHelper.cs" line="670" column="1" />
+      <Breakpoint file="/Users/rees/Desktop/AnimalDrawingApi/Models/AWSS3BucketHelper.cs" relfile="Models/AWSS3BucketHelper.cs" line="654" column="17" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.AnimalDrawing PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Models/AWSS3BucketHelper.cs">
+    <Files>
+      <File FileName="Views/Upload/Index.cshtml" />
+      <File FileName="Models/MaterialListPreviewUploadModel.cs" />
+      <File FileName="wwwroot/css/Upload.css" />
+      <File FileName="wwwroot/css/main.css" />
+      <File FileName="Views/Upload/success.cshtml" />
+      <File FileName="Controllers/HomeController.cs" />
+      <File FileName="Controllers/UploadController.cs" />
+      <File FileName="Models/AWSS3BucketHelper.cs" Line="663" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+</Properties>

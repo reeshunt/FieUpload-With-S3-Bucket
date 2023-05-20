@@ -1,0 +1,306 @@
+﻿@using AnimalDrawing.Models
+@{
+    Layout = null;
+}
+@model FileUploadModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Animal Drawing</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <script src="~/js/jQuery.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/main.css">
+    @*Sweet Alert CDN starts*@
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+    @*Sweet Alert CDN ends*@
+
+</head>
+<body style="background: url('css/background.jpg'); background-repeat: no-repeat; background-size: cover;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <img src="~/logo.png" style="width: 50px;" class="img-thumbnail" alt="wild animals">
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h2>Animal Drawing Admin Portal</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="tabs col-md-10 mid">
+                <div class="row heads " id="click">
+                    <ul class="tabs-list nav nav-fill">
+                        <li class="active nav-item"><a href="#tab1">Material List Preview Screen</a></li>
+                        <li class="nav-item"><a href="#tab2">Gif Screen</a></li>
+                        <li class="nav-item"><a href="#tab3">Video Preview Screen</a></li>
+                    </ul>
+                </div>
+                <div id="tab1" class="tab active">
+                    <form asp-controller="Home" asp-action="MaterialListUpload" method="post" enctype="multipart/form-data">
+                        <div class="row justify-content-center">
+                            <div class="col-md-10 heads">
+                                <label for="">Animal Name</label>
+                                <input asp-for="@Model.AnimalName" type="text" class="form-control animalbtn AnimalName1" placeholder="Animal Name" />
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-md-3 text-left">
+                                Material Preview Image Url
+                                <div class="drop-zone">
+                                    <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                                    <input type="file" asp-for="@Model.MaterialPreviewImageURL"  class="drop-zone__input">
+                                </div>
+                            </div>
+                            <div class="col-md-3 text-left">
+                                Art Board Image URL
+                                <div class="drop-zone">
+                                    <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                                    <input type="file" asp-for="@Model.ArtBoardImgURL" class="drop-zone__input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mt-5">
+                            <div class="col-md-10">
+                                <div class="d-flex justify-content-between">
+                                    <input type="submit" class="btn btn-lg btn-theme rounded-pill px-5" value="Upload">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="tab2" class="tab">
+                    <form asp-controller="Home" asp-action="GIFUpload" method="post" enctype="multipart/form-data">
+                        <div class="row justify-content-md-center">
+                            <div class="col-md-10 heads">
+                                <label for="">Animal Name</label>
+                                <input type="text" class="form-control animalbtn AnimalName2" placeholder="Animal Name" asp-for="@Model.AnimalName" />
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-md-2 text-center">
+                                Animal List
+                                <div class="drop-zone">
+                                    <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                                    <input type="file" asp-for="@Model.GIFImageList" class="drop-zone__input" multiple />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mt-5">
+                            <div class="col-md-10">
+                                <div class="d-flex justify-content-between">
+                                    <input type="submit" class="btn btn-lg btn-theme rounded-pill px-5" value="Upload" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="tab3" class="tab">
+                    <form asp-controller="Home" asp-action="VideoPreviewScreenUpload" method="post" enctype="multipart/form-data">
+                        <div class="row justify-content-center">
+                            <div class="col-md-10 heads">
+                                <label for="">Animal Name</label>
+                                <input type="text" class="form-control animalbtn AnimalName3" placeholder="Animal Name" asp-for="@Model.AnimalName" />
+                            </div>
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="row justify-content-center">
+                            <div class="col-md-3 text-center">
+                                Preview Image URL
+                                <div class="drop-zone">
+                                    <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                                    <input type="file" asp-for="@Model.VideoPreviewScreenImageURL" class="drop-zone__input" />
+                                </div>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                Youtube Video URL
+                                <div class="drop-zone">
+                                    <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                                    <input type="file" asp-for="@Model.VideoPreviewScreenImgURL" class="drop-zone__input" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mt-5">
+                            <div class="col-md-10">
+                                <div class="d-flex justify-content-between">
+                                    <input type="submit" class="btn btn-lg btn-theme rounded-pill px-5" value="Upload">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <form asp-action="DeleteAll" asp-controller="Home" class="deleteForm" method="get">
+                <br />
+                <input type="submit" class="btn-danger btn btn-lg rounded-pill px-5" value="Delete All">
+           </form>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+$(document).ready(function () {
+    $(".tabs-list li a").click(function (e) {
+        e.preventDefault();
+    });
+    $(".tabs-list li").click(function () {
+        var tabid = $(this).find("a").attr("href");
+        $(".tabs-list li,.tabs div.tab").removeClass("active");   // removing active class from tab
+
+        $(".tab").hide();   // hiding open tab
+        $(tabid).show();    // show tab
+        $(this).addClass("active"); //  adding active class to clicked tab
+    });
+    //On form submit
+    $("form").on("submit", function () {
+        var $form = $(this);
+        var formClassName = $form.attr('class');
+        if (formClassName == "deleteForm") {
+            return;
+        }
+        if ($('.nav-item.active').text() == 'Material List Preview Screen') {
+            validate('MLPS')
+        } else if ($('.nav-item.active').text() == 'Gif Screen') {
+            validate('GS')
+        }
+        else if ($('.nav-item.active').text() == 'Video Preview Screen') {
+            validate('VPS')
+        }
+    });//submit
+});
+document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
+    const dropZoneElement = inputElement.closest(".drop-zone");
+
+    dropZoneElement.addEventListener("click", (e) => {
+        inputElement.click();
+    });
+
+    inputElement.addEventListener("change", (e) => {
+        if (inputElement.files.length) {
+            updateThumbnail(dropZoneElement, inputElement.files[0]);
+        }
+    });
+
+    dropZoneElement.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropZoneElement.classList.add("drop-zone--over");
+    });
+
+    ["dragleave", "dragend"].forEach((type) => {
+        dropZoneElement.addEventListener(type, (e) => {
+            dropZoneElement.classList.remove("drop-zone--over");
+        });
+    });
+
+    dropZoneElement.addEventListener("drop", (e) => {
+        e.preventDefault();
+
+        if (e.dataTransfer.files.length) {
+            inputElement.files = e.dataTransfer.files;
+            updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
+        }
+
+        dropZoneElement.classList.remove("drop-zone--over");
+    });
+});
+
+/**
+    * Updates the thumbnail on a drop zone element.
+    *
+    * @@param {HTMLElement} dropZoneElement
+    * @@param {File} file
+    */
+function updateThumbnail(dropZoneElement, file) {
+    let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
+
+    // First time - remove the prompt
+    if (dropZoneElement.querySelector(".drop-zone__prompt")) {
+        dropZoneElement.querySelector(".drop-zone__prompt").remove();
+    }
+
+    // First time - there is no thumbnail element, so lets create it
+    if (!thumbnailElement) {
+        thumbnailElement = document.createElement("div");
+        thumbnailElement.classList.add("drop-zone__thumb");
+        dropZoneElement.appendChild(thumbnailElement);
+    }
+
+    thumbnailElement.dataset.label = file.name;
+
+    // Show thumbnail for image files
+    if (file.type.startsWith("image/")) {
+        const reader = new FileReader();
+
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
+        };
+    } else {
+        thumbnailElement.style.backgroundImage = null;
+    }
+}
+    function validate(mod) {
+        if (mod == "MLPS") {
+            if ($('.AnimalName1').val().length == 0) {
+                swal("Oops!", "Please enter Animal Name!", "error");
+                event.preventDefault();
+                return;
+            }
+            if ($('#MaterialPreviewImageURL').val().length == 0) {
+                swal("Oops!", "Please select MaterialPreviewImageURL File!", "error");
+                event.preventDefault();
+                return;
+            }
+            if ($('#ArtBoardImgURL').val().length == 0) {
+                swal("Oops!", "Please select ArtBoardImgURL File!", "error");
+                event.preventDefault();
+                return;
+            }
+        }
+        else if (mod == "GS") {
+            if ($('.AnimalName2').val().length == 0) {
+                swal("Oops!", "Please enter Animal Name!", "error");
+                event.preventDefault();
+                return;
+            }
+            if ($('#GIFImageList').val().length == 0) {
+                swal("Oops!", "Please select GIFImageList File!", "error");
+                event.preventDefault();
+                return;
+            }
+        }
+        else if (mod == "VPS") {
+            if ($('.AnimalName3').val().length == 0) {
+                swal("Oops!", "Please enter Animal Name!", "error");
+                event.preventDefault();
+                return;
+            }
+            if ($('#VideoPreviewScreenImageURL').val().length == 0) {
+                swal("Oops!", "Please select VideoPreviewScreenImageURL File!", "error");
+                event.preventDefault();
+                return;
+            }
+            if ($('#VideoPreviewScreenImgURL').val().length == 0) {
+                swal("Oops!", "Please select VideoPreviewScreenImgURL File!", "error");
+                event.preventDefault();
+                return;
+            }
+        }
+
+
+
+
+        var strLoading = 'Uploading ...';
+        $("input[type=submit]").attr("value", strLoading);
+        $("input[type=submit]").attr('disabled', 'disabled');
+    }
+</script>
