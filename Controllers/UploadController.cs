@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AnimalDrawing.Controllers
 {
+    //Controller
     public class UploadController : Controller
     {
         public IActionResult Index()
